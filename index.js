@@ -9,9 +9,14 @@ const typeDefs = gql`
     name: String!
   }
 
+  type WillBeResolvedExplicitly {
+    name: String!
+  }
+
   type Query {
     implAttr: ImplicitResolve!
     explAttr: ExplicitResolve!
+    wbre: WillBeResolvedExplicitly!
   }
 `;
 
@@ -23,8 +28,16 @@ const resolvers = {
             }
         },
         explAttr: () => 123,
+        wbre: () => {
+            return {
+                name: 'hello'
+            }
+        },
     },
     ExplicitResolve: {
+        name: (root) => String(root)
+    },
+    WillBeResolvedExplicitly: {
         name: (root) => String(root)
     }
 };

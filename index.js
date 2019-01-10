@@ -47,3 +47,31 @@ const server = new ApolloServer({ typeDefs, resolvers });
 server.listen().then(({ url }) => {
     console.log(`Server ready at ${url}`);
 });
+
+// Query
+// query {
+//     implAttr {
+//       name
+//     }
+//     explAttr {
+//       name
+//     }
+//     wbre {
+//       name
+//     }
+//   }
+
+// Result
+// {
+//     "data": {
+//       "implAttr": {
+//         "name": "hello"
+//       },
+//       "explAttr": {
+//         "name": "123"
+//       },
+//       "wbre": {
+//         "name": "[object Object]"
+//       }
+//     }
+//   }

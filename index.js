@@ -35,6 +35,8 @@ const resolvers = {
         },
     },
     ExplicitResolve: {
+        // Resolver can be async and can do stuff like DB call
+        // Apollo does await accordingly
         name: (root) => String(root)
     },
     WillBeResolvedExplicitly: {
